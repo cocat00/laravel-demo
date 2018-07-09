@@ -22,3 +22,7 @@ Route::any('student/create', ['uses' => 'StudentController@create']);
 Route::any('student/save', ['uses' => 'StudentController@save']);
 
 Route::any('student/update/{id}', ['uses' => 'StudentController@update']);
+
+Route::any('student/detail/{id}', ['uses' => 'StudentController@detail']);
+
+Route::any('student/delete/{id}', ['uses' => 'StudentController@delete']);
