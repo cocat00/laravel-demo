@@ -24,7 +24,7 @@
                     <th scope="row">{{ $student->id }}</th>
                     <td>{{ $student->name }}</td>
                     <td>{{ $student->age }}</td>
-                    <td>{{ $student->sex}}</td>
+                    <td>{{ $student->getSex($student->sex)}}</td>
                     <td>{{ $student->created_at }}</td>
                     <td>
                         <a href="{{ url('student/detail', ['id' => $student->id]) }}">详情</a>

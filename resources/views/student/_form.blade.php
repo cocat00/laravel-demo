@@ -5,7 +5,7 @@
 
         <div class="col-sm-5">
             <input type="text" name="Student[name]"
-                   value="{{old('Student')['name'] ? old('Student')['name'] : $student->name}}"
+                   value="{{old('Student')['name'] ? old('Student')['name'] : (isset($student->name) ? $student->name : '')}}"
                    class="form-control" id="name" placeholder="请输入学生姓名">
         </div>
         <div class="col-sm-5">
@@ -17,7 +17,7 @@
 
         <div class="col-sm-5">
             <input type="text" name="Student[age]"
-                   value="{{old('Student')['age'] ? old('Student')['age'] : $student->age}}"
+                   value="{{old('Student')['age'] ? old('Student')['age'] : (isset($student->age) ? $student->age : '')}}"
                    class="form-control" id="age" placeholder="请输入学生年龄">
         </div>
         <div class="col-sm-5">
@@ -28,15 +28,13 @@
         <label class="col-sm-2 control-label">性别</label>
 
         <div class="col-sm-5">
+            @foreach($student->getSex() as $ind=>$val)
             <label class="radio-inline">
-                <input type="radio" name="Student[sex]" value="10"> 未知
+                <input type="radio" name="Student[sex]"
+                       {{ isset($student->sex) && $student->sex == $ind ? 'checked' : ''}}
+                       value="{{$ind}}"> {{$val}}
             </label>
-            <label class="radio-inline">
-                <input type="radio" name="Student[sex]" value="20"> 男
-            </label>
-            <label class="radio-inline">
-                <input type="radio" name="Student[sex]" value="20"> 女
-            </label>
+            @endforeach
         </div>
         <div class="col-sm-5">
             <p class="form-control-static text-danger">{{$errors->first('Student.sex')}}</p>
