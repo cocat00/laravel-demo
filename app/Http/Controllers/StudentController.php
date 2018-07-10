@@ -103,7 +103,7 @@ class StudentController extends Controller {
 
             $student->name = $data['name'];
             $student->age = $data['age'];
-            $student->age = $data['age'];
+            $student->sex = $data['sex'];
             if ($student->save()) {
                 return redirect('student/index')->with('success', '修改成功-' . $id . ' !');
             } else {
