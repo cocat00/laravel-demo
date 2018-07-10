@@ -26,3 +26,7 @@ Route::any('student/update/{id}', ['uses' => 'StudentController@update']);
 Route::any('student/detail/{id}', ['uses' => 'StudentController@detail']);
 
 Route::any('student/delete/{id}', ['uses' => 'StudentController@delete']);
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
